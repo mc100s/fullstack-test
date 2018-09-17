@@ -39,6 +39,7 @@ class Countries extends Component {
               <th>Name</th>
               <th>Capitals</th>
               <th>Area</th>
+              <th>Creator</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -47,6 +48,7 @@ class Countries extends Component {
               <td>{c.name}</td>
               <td>{c.capitals}</td>
               <td>{c.area}</td>
+              <td>{c._creator ? c._creator.username : "?"}</td>
               <td><button onClick={e => this.handleDelete(c._id)}>Delete</button></td>
             </tr>)}
           </tbody>

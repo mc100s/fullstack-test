@@ -14,6 +14,9 @@ class AddCountry extends Component {
       description: "",
       message: null
     }
+    if (!api.isLoggedIn()) {
+      this.props.history.push('/login')
+    }
   }
 
   handleInputChange(stateFieldName, event) {

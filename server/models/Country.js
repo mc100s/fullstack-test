@@ -16,6 +16,10 @@ const countrySchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  _creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 const Country = mongoose.model('Country', countrySchema);
