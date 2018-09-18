@@ -83,12 +83,31 @@ export default {
     return localStorage.getItem('user') != null
   },
 
+  getProfile() {
+    return service
+      .get('/profile')
+      .then(res => res.data)
+  },
+
 
   addPicture(file) {
     const formData = new FormData();
     formData.append("picture", file)
     return service
       .post('/users/first-user/pictures', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  addProfilePicture(file) {
+    const formData = new FormData();
+    formData.append("picture", file)
+    return service
+      .patch('/profile/picture', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
